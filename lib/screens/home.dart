@@ -1,7 +1,9 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../widgets/bottom_nav_bar.dart';
+import '../widgets/hero_search.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -18,51 +20,47 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor:
-            Colors.transparent, // Set the background color to transparent
+        backgroundColor: Colors.transparent,
+        toolbarHeight: 100,
         title: Padding(
-          padding: const EdgeInsets.only(top: 8), // Add padding top
-          child: Row(
+          padding: const EdgeInsets.only(top: 20), // Modifikasi jarak dari atas
+          child: Column(
             children: [
-              const CircleAvatar(
-                backgroundImage: NetworkImage('https://dummyimage.com/200x200'),
-              ),
-              const SizedBox(width: 8),
-              const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              Row(
                 children: [
-                  Text('John Doe',
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                  Text('john.doe@example.com', style: TextStyle(fontSize: 14)),
-                ],
-              ),
-              const Spacer(),
-              IconButton(
-                icon: const Icon(Icons.notifications),
-                onPressed: () {
-                  // Handle notification button press
-                },
-              ),
-              Container(
-                padding: const EdgeInsets.all(4),
-                decoration: const BoxDecoration(
-                  color: Colors.red,
-                  shape: BoxShape.circle,
-                ),
-                child: const Text(
-                  '5',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
+                  const CircleAvatar(
+                    backgroundImage:
+                        NetworkImage('https://dummyimage.com/200x200'),
+                    radius: 24,
                   ),
-                ),
+                  const SizedBox(width: 8),
+                  const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Selamat Datang', style: TextStyle(fontSize: 10)),
+                      Text('Agus Salim',
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold)),
+                    ],
+                  ),
+                  const Spacer(),
+                  IconButton(
+                    icon: SvgPicture.asset(
+                      'icons/bell.svg',
+                      width: 20,
+                      height: 20,
+                    ),
+                    onPressed: () {
+                      // Handle notification button press
+                    },
+                  ),
+                ],
               ),
             ],
           ),
         ),
       ),
+      body: const HeroSearch(),
       bottomNavigationBar: BottomNavBar(
         currentIndex: currentIndex,
         onTap: (index) {

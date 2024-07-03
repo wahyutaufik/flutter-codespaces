@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../widgets/bottom_nav_bar.dart';
+import '../widgets/category_section.dart';
 import '../widgets/hero_search.dart';
 
 class Home extends StatefulWidget {
@@ -60,7 +61,13 @@ class _HomeState extends State<Home> {
           ),
         ),
       ),
-      body: const HeroSearch(),
+      body: const Column(
+        children: [
+          HeroSearch(),
+          // Add your category section here
+          CategorySection(),
+        ],
+      ),
       bottomNavigationBar: BottomNavBar(
         currentIndex: currentIndex,
         onTap: (index) {

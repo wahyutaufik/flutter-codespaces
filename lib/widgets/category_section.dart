@@ -10,12 +10,21 @@ class CategorySection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         FB5Container(
-            child: const Text(
-          'Bidang Pekerjaan',
-          textAlign: TextAlign.left,
-          style: TextStyle(
-              fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),
-        )),
+          child: FB5Row(
+            classNames: 'px-3',
+            children: [
+              FB5Col(
+                  child: const Text(
+                'Bidang Pekerjaan',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black),
+              )),
+            ],
+          ),
+        ),
         const SizedBox(height: 10),
         FB5Row(
           classNames: 'px-xs-3 px-lg-0 g-3',
@@ -23,21 +32,21 @@ class CategorySection extends StatelessWidget {
             FB5Col(
               classNames: 'col-4',
               child: const CardMenu(
-                icon: Icons.work,
+                icon: Icons.person,
                 label: 'Distribusi',
               ),
             ),
             FB5Col(
               classNames: 'col-4',
               child: const CardMenu(
-                icon: Icons.work,
+                icon: Icons.build_sharp,
                 label: 'Transmisi',
               ),
             ),
             FB5Col(
               classNames: 'col-4',
               child: const CardMenu(
-                icon: Icons.work,
+                icon: Icons.electrical_services,
                 label: 'Pembangkit',
               ),
             ),
@@ -67,7 +76,7 @@ class CardMenu extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Icon(icon),
+            Icon(icon, color: Colors.blueGrey),
             const SizedBox(height: 10),
             Text(
               label,

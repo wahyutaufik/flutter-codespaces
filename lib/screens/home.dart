@@ -2,9 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../widgets/bottom_nav_bar.dart';
-import '../widgets/category_section.dart';
-import '../widgets/hero_search.dart';
+import 'package:flutter_app/widgets/recommendation.dart';
+import 'package:flutter_app/widgets/bottom_nav_bar.dart';
+import 'package:flutter_app/widgets/category_section.dart';
+import 'package:flutter_app/widgets/hero_search.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -66,6 +67,7 @@ class _HomeState extends State<Home> {
           HeroSearch(),
           // Add your category section here
           CategorySection(),
+          Recommendation()
         ],
       ),
       bottomNavigationBar: BottomNavBar(
